@@ -190,6 +190,11 @@ other related libraries. See origin for MBED port on <https://github.com/thomaso
  */
 #define USE_N2K_ARDUINO_CAN 9
 
+ /*********************************************************************//**
+  * \brief Use the ESP32 CAN Library
+  * - [NMEA2000_esp32XX](https://github.com/minou65/NMEA2000_esp32xx) library
+  */
+#define USE_N2K_ESP32XX_CAN 10   
 
 /***********************************************************************//**
   \def USE_N2K_CAN
@@ -215,8 +220,16 @@ other related libraries. See origin for MBED port on <https://github.com/thomaso
 #define USE_N2K_CAN USE_N2K_AVR_CAN
 #elif defined(__linux__)||defined(__linux)||defined(linux)
 #define USE_N2K_CAN USE_N2K_SOCKET_CAN
-#elif defined(ARDUINO_ARCH_ESP32) || defined(ESP32)
+#elif defined(ESP32S3)
 #define USE_N2K_CAN USE_N2K_ESP32_CAN
+#elif defined(ARDUINO_ARCH_ESP32) || defined(ESP32)
+
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+#define USE_N2K_CAN USE_N2K_ESP32XX_CAN
+#else
+#define USE_N2K_CAN USE_N2K_ESP32_CAN
+#endif
+
 #elif defined(__IMXRT1062__)
 #define USE_N2K_CAN USE_N2K_TEENSYX_CAN
 #elif defined(ARDUINO_UNOWIFIR4) || defined(ARDUINO_MINIMA)
@@ -276,6 +289,10 @@ tmbedStream serStream;
 #elif USE_N2K_CAN == USE_N2K_ESP32_CAN
 #include <NMEA2000_esp32.h>       // https://github.com/ttlappalainen/NMEA2000_esp32
 tNMEA2000 &NMEA2000=*(new tNMEA2000_esp32());
+
+#elif USE_N2K_CAN == USE_N2K_ESP32XX_CAN
+#include <NMEA2000_esp32xx.h> // https://github.com/ttlappalainen/NMEA2000_esp32
+tNMEA2000& NMEA2000 = *(new tNMEA2000_esp32xx());
 
 #elif USE_N2K_CAN == USE_N2K_ARDUINO_CAN
 #include <NMEA2000_ArduinoCAN.h>
