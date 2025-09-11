@@ -64,3 +64,5 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 *.a
+NMEA2000.vcxitems
+NMEA2000.vcxitems.filters
