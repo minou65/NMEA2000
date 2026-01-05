@@ -210,7 +210,7 @@ other related libraries. See origin for MBED port on <https://github.com/thomaso
   * \brief Use the ESP32 CAN Library
   * - [NMEA2000_esp32XX](https://github.com/minou65/NMEA2000_esp32xx) library
   */
-#define USE_N2K_ESP32XX_CAN 10   
+#define USE_N2K_ESP32XX_CAN 11   
 
 /***********************************************************************//**
   \def USE_N2K_CAN
