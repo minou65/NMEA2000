@@ -1,6 +1,6 @@
 /* N2kMessages.h
  * 
- * Copyright (c) 2015-2024 Timo Lappalainen, Kave Oy, www.kave.fi
+ * Copyright (c) 2015-2025 Timo Lappalainen, Kave Oy, www.kave.fi
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -172,6 +172,13 @@ inline double msToKnots(double v) { return N2kIsNA(v)?v:v*1.94384449244060475161
 inline double KnotsToms(double v) { return N2kIsNA(v)?v:v*0.51444444444444444444444444444444L; } // 1852L/3600.0L
 
 /************************************************************************//**
+ * \brief Converting a value from MeterPerSecond to MilesPerHour
+ * \param   v   Input value in [mps]
+ * \return      Corresponding value in [MPH]
+ */
+inline double msToMPH(double v) { return N2kIsNA(v)?v:v*2.2727272727272727272727272727272L; }
+
+/************************************************************************//**
  * \brief Setting up PGN126992 Message "System date/time"
  * \ingroup group_msgSetUp
  * 
@@ -262,7 +269,7 @@ inline bool ParseN2kSystemTime(const tN2kMsg &N2kMsg, unsigned char &SID, uint16
  * \sa tN2kAISTransceiverInformation
  */
 void SetN2kPGN129802(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t SourceID,
-      tN2kAISTransceiverInformation AISTransceiverInformation, char * SafetyRelatedText);
+      tN2kAISTransceiverInformation AISTransceiverInformation, const char * SafetyRelatedText);
 
 /************************************************************************//**
  * \brief Setting up Message "AIS Safety Related Broadcast Message" - 
@@ -274,7 +281,7 @@ void SetN2kPGN129802(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, u
  * 
  */
 inline void SetN2kAISSafetyRelatedBroadcastMsg(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t SourceID,
-      tN2kAISTransceiverInformation AISTransceiverInformation, char * SafetyRelatedText) {
+      tN2kAISTransceiverInformation AISTransceiverInformation, const char * SafetyRelatedText) {
    SetN2kPGN129802(N2kMsg, MessageID, Repeat, SourceID, AISTransceiverInformation, SafetyRelatedText);
 }
 

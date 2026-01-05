@@ -1,6 +1,15 @@
 # Changes to the Library {#changes}
 \tableofcontents
 
+## 01.11.2025
+- Improved AddVarStr handling. Some PGN fields max size is define 
+  in characters and some like AIS must be forced to ASCII
+- Fixed some message hadling functions.
+
+## 30.10.2025
+- UTF8 support for AddVarStr
+- Pi Pico support for NMEA2000_CAN
+
 ## 01.11.2024
 - Add PGN127751
 - Fix PGN129038 field 18
