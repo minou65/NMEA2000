@@ -64,3 +64,14 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 *.a
+NMEA2000.sln
+NMEA2000.vcxitems
+NMEA2000.vcxitems.filters
+.vs/NMEA2000/CopilotIndices/17.14.1561.44479/CodeChunks.db
+.vs/NMEA2000/CopilotIndices/17.14.1561.44479/SemanticSymbols.db
+.vs/NMEA2000/FileContentIndex/ac19f980-c1c3-40b6-9e01-ebf8e7272b9b.vsidx
+.vs/NMEA2000/FileContentIndex/ba26dd31-6888-4ae1-a68e-a3c910966d77.vsidx
+.vs/NMEA2000/FileContentIndex/f653a57a-49b4-442e-93fb-390f820d6b7c.vsidx
+.vs/NMEA2000/v17/.suo
+.vs/NMEA2000/v17/DocumentLayout.backup.json
+.vs/NMEA2000/v17/DocumentLayout.json
